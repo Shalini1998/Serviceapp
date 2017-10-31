@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @service_man.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @service_man.last_name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @service_man.contact_no %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @service_man.address %>
+</p>
+
+<p>
+  <strong>Profile pic:</strong>
+  <%= @service_man.profile_pic %>
+  <%= image_tag @service_man.profile_pic_url %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @service_man.email %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @service_man.shop_id %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @service_man.age %>
+</p>
+
+<%= link_to 'Edit', edit_admins_service_man_path(@service_man) %> |
+<%= link_to 'Back', admins_service_men_path %>
+ <div id="map"></div>
+ <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 400px;
+        width: 800px;
+      }
+      
+    </style>
+    <script>
+
+         function initMap() {
+           var  lati = <%= @service_man.latitude %>
+            var long = <%= @service_man.longitude %>
+
+          var myLatLng = {lat: lati, lng: long};
+
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 8,
+             center: myLatLng
+           });
+       
+            var marker = new google.maps.Marker({
+               position: myLatLng,
+               map: map,
+               title: 'Hello World!'
+             });
+         }
+       </script>
+       <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMof93EDC6Ig6LbVU5QunuMXgU5lNFzdcs&callback=initMap">
+       </script>
+

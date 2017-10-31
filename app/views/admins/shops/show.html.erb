@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shop.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @shop.location %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @shop.owner_id %>
+</p>
+
+<%= link_to 'Edit', edit_admins_shop_path(@shop) %> |
+<%= link_to 'Back', admins_shops_path %>
+
+<div id="map"></div>
+<style>
+     /* Always set the map height explicitly to define the size of the div
+      * element that contains the map. */
+     #map {
+       height: 400px;
+       width: 800px;
+     }
+     
+   </style>
+   <script>
+
+        function initMap() {
+          var  lati = <%= @shop.latitude %>
+           var long = <%= @shop.longitude %>
+
+         var myLatLng = {lat: lati, lng: long};
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: myLatLng
+          });
+      
+           var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              title: 'Hello World!'
+            });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMof93EDC6Ig6LbVU5QunuMXgU5lNFzdcs&callback=initMap">
+      </script>

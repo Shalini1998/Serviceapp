@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @service_man.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @service_man.last_name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @service_man.contact_no %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @service_man.address %>
+</p>
+
+<p>
+  <strong>Profile pic:</strong>
+  <%= @service_man.profile_pic %>
+  <%= image_tag @service_man.profile_pic_url %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @service_man.email %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @service_man.shop_id %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @service_man.age %>
+</p>
+
+<%= link_to 'Back', service_men_path %>

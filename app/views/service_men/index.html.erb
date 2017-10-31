@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Service Men</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Contact no</th>
+      <th>Address</th>
+      <th>Profile pic</th>
+      <th>Email</th>
+      <th>Shop</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_men.each do |service_man| %>
+      <tr>
+        <td><%= service_man.first_name %></td>
+        <td><%= service_man.last_name %></td>
+        <td><%= service_man.contact_no %></td>
+        <td><%= service_man.address %></td>
+        <td><%= service_man.profile_pic %></td>
+        <td><%= service_man.email %></td>
+        <td><%= service_man.shop_id %></td>
+        <td><%= service_man.age %></td>
+        <td><%= link_to 'Show', service_man %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
