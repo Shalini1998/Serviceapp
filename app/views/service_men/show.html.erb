@@ -1,44 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ServiceMan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @service_man.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @service_man.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @service_man.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:contact_no) %>:</strong></dt>
+  <dd><%= @service_man.contact_no %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @service_man.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:profile_pic) %>:</strong></dt>
+  <dd><%= @service_man.profile_pic %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @service_man.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shop_id) %>:</strong></dt>
+  <dd><%= @service_man.shop_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
+  <dd><%= @service_man.age %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @service_man.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @service_man.longitude %></dd>
+</dl>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @service_man.last_name %>
-</p>
-
-<p>
-  <strong>Contact no:</strong>
-  <%= @service_man.contact_no %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @service_man.address %>
-</p>
-
-<p>
-  <strong>Profile pic:</strong>
-  <%= @service_man.profile_pic %>
-  <%= image_tag @service_man.profile_pic_url %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @service_man.email %>
-</p>
-
-<p>
-  <strong>Shop:</strong>
-  <%= @service_man.shop_id %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @service_man.age %>
-</p>
-
-<%= link_to 'Back', service_men_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              service_men_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_service_man_path(@service_man), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              service_man_path(@service_man),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

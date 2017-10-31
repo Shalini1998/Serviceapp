@@ -1,106 +1,106 @@
-<%= form_for(service_man) do |f| %>
-  <% if service_man.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service_man.errors.count, "error") %> prohibited this service_man from being saved:</h2>
+<%= form_for @service_man, :html => { :class => "form-horizontal service_man" } do |f| %>
 
-      <ul>
-      <% service_man.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @service_man.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@service_man.errors.count, "error") %> prohibited this service_man from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @service_man.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+  <div class="form-group">
+    <%= f.label :first_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :first_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:first_name) %>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <div class="form-group">
+    <%= f.label :last_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :last_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:last_name) %>
   </div>
 
-  <div class="field">
-    <%= f.label :contact_no %>
-    <%= f.text_field :contact_no %>
+  <div class="form-group">
+    <%= f.label :contact_no, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :contact_no, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:contact_no) %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, :class => 'form-control',id:"autocomplete" , placeholder:"Enter your address",
-
-              onFocus: "geolocate()" %>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:address) %>
   </div>
 
-  <div class="field">
-    <%= f.label :profile_pic %>
-    <%= f.text_field :profile_pic %>
+  <div class="form-group">
+    <%= f.label :profile_pic, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :profile_pic, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:profile_pic) %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
   </div>
 
-  <div class="field">
-    <%= f.label :shop_id %>
-    <%= f.number_field :shop_id %>
+  <div class="form-group">
+    <%= f.label :shop_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :shop_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:shop_id) %>
   </div>
 
-  <div class="field">
-    <%= f.label :age %>
-    <%= f.text_field :age %>
+  <div class="form-group">
+    <%= f.label :age, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :age, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:age) %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :latitude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :latitude, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:latitude) %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :longitude, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :longitude, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:longitude) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                service_men_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
 <% end %>
-
-<script>
-     // Note: This example requires that you consent to location sharing when
-     // prompted by your browser. If you see the error "The Geolocation service
-     // failed.", it means you probably did not give permission for the browser to
-     // locate you.
-     var map, infoWindow;
-     function initMap() {
-       map = new google.maps.Map(document.getElementById('map'), {
-         center: {lat: -34.397, lng: 150.644},
-         zoom: 6
-       });
-       infoWindow = new google.maps.InfoWindow;
-
-       // Try HTML5 geolocation.
-       if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function(position) {
-           var pos = {
-             lat: position.coords.latitude,
-             lng: position.coords.longitude
-           };
-
-           infoWindow.setPosition(pos);
-           infoWindow.setContent('Location found.');
-           infoWindow.open(map);
-           map.setCenter(pos);
-         }, function() {
-           handleLocationError(true, infoWindow, map.getCenter());
-         });
-       } else {
-         // Browser doesn't support Geolocation
-         handleLocationError(false, infoWindow, map.getCenter());
-       }
-     }
-
-     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-       infoWindow.setPosition(pos);
-       infoWindow.setContent(browserHasGeolocation ?
-                             'Error: The Geolocation service failed.' :
-                             'Error: Your browser doesn\'t support geolocation.');
-       infoWindow.open(map);
-     }
-   </script>
-   <script async defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMof93EDC6Ig6LbVU5QunuMXgU5lNFzdcs&callback=initMap">
-   </script>
-

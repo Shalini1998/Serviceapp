@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
 
+  root 'home#index'
   resources :owners, only: [:show, :index]
   resources :shops, only: [:show, :index]
   resources :service_men, only: [:show, :index]

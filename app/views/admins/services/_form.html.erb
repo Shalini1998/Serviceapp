@@ -16,9 +16,12 @@
         </div>
       <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
   </div>
 
   <div class="form-group">
@@ -26,7 +29,7 @@
     <div class="col-lg-10">
     <%= f.text_area :description, class:  'ckeditor form-control' %>
     </div>
-    
+    <%=f.error_span(:name) %>
   </div>
 
   <div class="actions">

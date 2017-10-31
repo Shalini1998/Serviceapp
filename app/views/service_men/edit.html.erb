@@ -1,6 +1,5 @@
-<h1>Editing Service Man</h1>
-
-<%= render 'form', service_man: @service_man %>
-
-<%= link_to 'Show', @service_man %> |
-<%= link_to 'Back', service_men_path %>
+<%- model_class = ServiceMan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
