@@ -1,5 +1,5 @@
 class ServiceMan < ApplicationRecord
-  
+  belongs_to :service, optional: true
   belongs_to :shop ,optional: true
   geocoded_by :address   
   after_validation :geocode

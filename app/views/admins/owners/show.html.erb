@@ -40,19 +40,15 @@
    </style>
 
          <script>
-
             function initMap() {
               var  lati = <%= @owner.latitude %>
                var long = <%= @owner.longitude %>
-
              var myLatLng = {lat: lati, lng: long};
-
                var map = new google.maps.Map(document.getElementById('map'), {
                  zoom: 8,
                 center: myLatLng
               });
           
-
                var marker = new google.maps.Marker({
                   position: myLatLng,
                   map: map,
@@ -63,6 +59,15 @@
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMof93EDC6Ig6LbVU5QunuMXgU5lNFzdcs&callback=initMap">
           </script> 
+
+
+
+
+
+
+
+
+               
  
 
 

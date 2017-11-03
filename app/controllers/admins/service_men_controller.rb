@@ -69,6 +69,6 @@ class Admins::ServiceMenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_man_params
-      params.require(:service_man).permit(:first_name, :last_name, :contact_no, :address, :profile_pic, :email, :shop_id, :age)
+      params.require(:service_man).permit(:first_name, :last_name, :contact_no, :address, :profile_pic, :email, :shop_id, :age, :service_id)
     end
 end
