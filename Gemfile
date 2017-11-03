@@ -55,6 +55,7 @@ gem "geocoder"
 gem "ckeditor"
 gem "carrierwave"
 gem "twitter-bootstrap-rails"
+gem "ransack"
 
 
 

@@ -10,6 +10,7 @@ class ServiceMenController < ApplicationController
   # GET /service_men/1
   # GET /service_men/1.json
   def show
+    @service_men = ServiceMan.find_by(params[:id])
   end
 
   # GET /service_men/new
@@ -50,7 +51,16 @@ class ServiceMenController < ApplicationController
       end
     end
   end
+  
 
+     def find_nearby_location
+       @service_man = ServiceMan.find(params[:id])
+       lat = @service_man.latitude
+       long =@service_man.longitude
+
+       @locations = ServiceMan.near([lat,long],20)
+       puts @locations
+   end
   # DELETE /service_men/1
   # DELETE /service_men/1.json
  

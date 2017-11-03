@@ -1,42 +1,12 @@
-<p id="notice"><%= notice %></p>
-<p>
-<strong>Name:</strong>
-<%= @service.name %>
-</p>
-<p>
-<strong>Description:</strong>
-<%= @service.description.html_safe %>
-</p>
-
-
-
-<!--map End-->
-<%= link_to 'Back', service_men_path %><br>
-<% @service_men.each do |sm| %>
-<%= sm.first_name %><br>
-<%= sm.last_name %><br>
-<%= sm.contact_no %><br>
-<%= sm.address %><br>
-<%= sm.profile_pic %><br>
-<%= sm.email %><br>
-<%= sm.shop_id %><br>
-<%= sm.age %><br>
-<% end %>
-
-
-
 <script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyCIioyDVG6q9NO3_1xpMEruSUAE7xu9Nto" type="text/javascript"></script>
 
-<div id="map" style="height: 400px; width: 500px;">
+  <div id="map" style="height: 400px; width: 500px;">
 </div>
-
 <script type="text/javascript">
-
-  var locations = [];
-  <% @service_men.each do |loc| %>
+    var locations = [];
+  <% @locations.each do |loc| %>
     locations.push(['<%= loc.address %>', '<%= loc.latitude %>', '<%= loc.longitude %>']);
   <% end %>
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
       center: new google.maps.LatLng(locations[0][1], locations[0][2]),

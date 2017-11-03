@@ -5,11 +5,12 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.all
-  end
+   end
 
   # GET /services/1
   # GET /services/1.json
   def show
+    @service_men = ServiceMan.all
   end
 
   # GET /services/new
@@ -50,6 +51,7 @@ class ServicesController < ApplicationController
       end
     end
   end
+  
 
   # DELETE /services/1
   # DELETE /services/1.json
@@ -62,6 +64,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :description)
+      params.require(:service).permit(:name, :description, :latitude, :longitude)
     end
 end

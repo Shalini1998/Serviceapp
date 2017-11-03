@@ -20,37 +20,29 @@
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-  <tbody>
-    <% @service_men.each do |service_man| %>
-      <tr>
-        <td><%= link_to service_man.id, service_man_path(service_man) %></td>
-        <td><%= service_man.first_name %></td>
-        <td><%= service_man.last_name %></td>
-        <td><%= service_man.contact_no %></td>
-        <td><%= service_man.address %></td>
-        <td><%= service_man.profile_pic %></td>
-        <td><%= service_man.email %></td>
-        <td><%= service_man.shop_id %></td>
-        <td><%= service_man.age %></td>
-        <td><%= service_man.latitude %></td>
-        <td><%= service_man.longitude %></td>
-        <td><%=l service_man.created_at %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      service_man_path(service_man), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_service_man_path(service_man), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      service_man_path(service_man),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
+      
+    
+   <tbody>
+     <% @service_men.each do |service_man| %>
+       <tr>
+       <td><%= link_to service_man.id, service_man_path(service_man) %></td>
+         <td><%= service_man.first_name %></td>
+         <td><%= service_man.last_name %></td>
+         <td><%= service_man.contact_no %></td>
+         <td><%= service_man.address %></td>
+         <td><%= service_man.profile_pic %></td>
+         <td><%= service_man.email %></td>
+         <td><%= service_man.shop_id %></td>
+         <td><%= service_man.age %></td>
+         <td><%= service_man.latitude %></td>
+         <td><%= service_man.longitude %></td>
+         <td><%=l service_man.created_at %></td>
+         <td>
+         <td><%= link_to 'Show', service_man %></td>
+         
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_service_man_path,
-            :class => 'btn btn-primary' %>

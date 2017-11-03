@@ -6,4 +6,4 @@ class Shop < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
   validates :owner_id, presence: true
-end
+ end
