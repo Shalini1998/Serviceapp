@@ -57,6 +57,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1.json
  
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.find(params[:id])

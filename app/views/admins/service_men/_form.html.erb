@@ -17,83 +17,82 @@
       <% end %>
 
   <div class="form-group">
-    <%= f.label :first_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :first_name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:first_name) %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :last_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :last_name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:last_name) %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :contact_no, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :contact_no, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:contact_no) %>
-  </div>
-
- <div class="field">
-   <%= f.label :address, :class => 'control-label col-lg-2' %>
-   <div class="col-lg-10">
-     <%= f.text_field :address, :class => 'form-control',id:"autocomplete" , placeholder:"Enter your address",
-
-             onFocus: "geolocate()" %><br>
-   </div>
-   <%=f.error_span(:address) %>
-   </div>
-
-  <div class="form-group">
-      <%= f.label :profile_pic, :class => 'control-label col-lg-2' %>
+      <%= f.label :first_name, :class => 'control-label col-lg-2' %>
       <div class="col-lg-10">
-        <%= f.file_field :profile_pic, :class => 'form-control' %><br>
+        <%= f.text_field :first_name, :class => 'form-control' %>
       </div>
-      <%=f.error_span(:current_year) %>
+      <%=f.error_span(:first_name) %>
     </div>
 
-  <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    <%= f.text_field :email, :class => 'form-control' %>
-  </div>
-  <%=f.error_span(:email) %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :shop_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    <%= f.select :shop_id, options_for_select(Shop.all.collect {|a| [a.id] },(f.object.try(:category_id))),{prompt: 'Select Shop_ID'}, { :class => 'form-control'} %>
+    <div class="form-group">
+      <%= f.label :last_name, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :last_name, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:last_name) %>
     </div>
-    <%=f.error_span(:shop_id) %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :age, :class => 'control-label col-lg-2'  %>
-    <div class="col-lg-10">
-    <%= f.text_field :age, :class => 'form-control' %>
-  </div>
-  <%=f.error_span(:age) %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :service_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    <%= f.select :service_id, options_for_select(Service.all.collect {|a| [a.id] },(f.object.try(:category_id))),{prompt: 'Select Service_ID'}, { :class => 'form-control'} %>
+    <div class="form-group">
+      <%= f.label :contact_no, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= f.text_field :contact_no, :class => 'form-control' %>
+      </div>
+      <%=f.error_span(:contact_no) %>
     </div>
-    <%=f.error_span(:service_id) %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   <div class="field">
+     <%= f.label :address, :class => 'control-label col-lg-2' %>
+     <div class="col-lg-10">
+       <%= f.text_field :address, :class => 'form-control',id:"autocomplete" , placeholder:"Enter your address",
+               onFocus: "geolocate()" %><br>
+     </div>
+     <%=f.error_span(:address) %>
+     </div>
+
+    <div class="form-group">
+        <%= f.label :profile_pic, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-10">
+          <%= f.file_field :profile_pic, :class => 'form-control' %><br>
+        </div>
+        <%=f.error_span(:current_year) %>
+      </div>
+
+    <div class="form-group">
+      <%= f.label :email, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :shop_id, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+      <%= f.select :shop_id, options_for_select(Shop.all.collect {|a| [a.id] },(f.object.try(:category_id))),{prompt: 'Select Shop_ID'}, { :class => 'form-control'} %>
+      </div>
+      <%=f.error_span(:shop_id) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :age, :class => 'control-label col-lg-2'  %>
+      <div class="col-lg-10">
+      <%= f.text_field :age, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:age) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :service_id, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+      <%= f.select :service_id, options_for_select(Service.all.collect {|a| [a.id] },(f.object.try(:category_id))),{prompt: 'Select Service_ID'}, { :class => 'form-control'} %>
+      </div>
+      <%=f.error_span(:service_id) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
 
 <script>
      // Note: This example requires that you consent to location sharing when

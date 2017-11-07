@@ -12,6 +12,8 @@
 
 <!--map End-->
 <%= link_to 'Back', service_men_path %><br>
+
+
 <% @service_men.each do |sm| %>
 <%= sm.first_name %><br>
 <%= sm.last_name %><br>
@@ -22,7 +24,6 @@
 <%= sm.shop_id %><br>
 <%= sm.age %><br>
 <% end %>
-
 
 
 <script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyCIioyDVG6q9NO3_1xpMEruSUAE7xu9Nto" type="text/javascript"></script>
@@ -36,8 +37,8 @@
 var markers = [];
 
 <% @service.service_men.each do |service_man| %>
-  markers.push({"lat":"<%= service_man.latitude%>", "lng":"<%= service_man.longitude%>"});
-<% end%>
+  markers.push({"lat":"<%= service_man.latitude%>", "lng":"<%= service_man.longitude%>" , "fn":"<%= service_man.first_name%>","ln":"<%= service_man.last_name%>","cn":"<%= service_man.contact_no%>" ,"email":"<%= service_man.email%>" ,"sp":"<%= service_man.shop_id%>" ,"ag":"<%= service_man.age%>"});
+<% end %>
 
 console.log(markers);
 
@@ -58,12 +59,14 @@ window.onload = function () {
     var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      title: data.title
+
+     title: data.title
+    
     });
     latlngbounds.extend(marker.position);
     (function (marker, data) {
       google.maps.event.addListener(marker, "click", function (e) {
-        infoWindow.setContent(data.description);
+        infoWindow.setContent(data.fn + " " + data.ln);
         infoWindow.open(map, marker);
       });
     })(marker, data);
@@ -72,6 +75,8 @@ window.onload = function () {
   map.fitBounds(latlngbounds);
 
 }
+
+
 
 // ]]></script></pre>
 <div id="dvMap" style="width: 800px; height: 500px;"></div>

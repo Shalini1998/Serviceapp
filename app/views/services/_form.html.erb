@@ -21,6 +21,16 @@
     <%= f.text_field :description %>
   </div>
 
+      <div class="field">
+        <%= f.label :address, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-10">
+          <%= f.text_field :address, :class => 'form-control',id:"autocomplete" , placeholder:"Enter your address",
+
+                  onFocus: "geolocate()" %><br>
+        </div>
+        <%=f.error_span(:address) %>
+        </div>
+      
   <div class="actions">
     <%= f.submit %>
   </div>
