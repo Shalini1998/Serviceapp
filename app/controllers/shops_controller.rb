@@ -30,9 +30,11 @@ class ShopsController < ApplicationController
       if @shop.save
         format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
         format.json { render :show, status: :created, location: @shop }
+        
       else
         format.html { render :new }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
+        
       end
     end
   end
@@ -44,9 +46,11 @@ class ShopsController < ApplicationController
       if @shop.update(shop_params)
         format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
         format.json { render :show, status: :ok, location: @shop }
+        
       else
         format.html { render :edit }
         format.json { render json: @shop.errors, status: :unprocessable_entity }
+        
       end
     end
   end

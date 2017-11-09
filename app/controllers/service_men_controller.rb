@@ -31,9 +31,11 @@ class ServiceMenController < ApplicationController
       if @service_man.save
         format.html { redirect_to @service_man, notice: 'Service man was successfully created.' }
         format.json { render :show, status: :created, location: @service_man }
+        render json: @service_man
       else
         format.html { render :new }
         format.json { render json: @service_man.errors, status: :unprocessable_entity }
+     render json: @service_man
       end
     end
   end
@@ -45,9 +47,11 @@ class ServiceMenController < ApplicationController
       if @service_man.update(service_man_params)
         format.html { redirect_to @service_man, notice: 'Service man was successfully updated.' }
         format.json { render :show, status: :ok, location: @service_man }
+     render json: @service_man
       else
         format.html { render :edit }
         format.json { render json: @service_man.errors, status: :unprocessable_entity }
+      render json: @service_man
       end
     end
   end
